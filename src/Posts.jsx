@@ -1,7 +1,12 @@
 import React from 'react'
+import Post from './Post'
 
 export default function Posts() {
   return (
-    <div className='bg-red-300 w-6/12 h-80'></div>
+    <div className='w-full h-screen flex flex-col gap-4'>
+      <Post />
+      <Post />
+      <Post />
+    </div>
   )
 }
