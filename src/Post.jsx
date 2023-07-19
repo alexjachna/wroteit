@@ -1,10 +1,32 @@
 import React from 'react'
+import { useState } from 'react'
 
-export default function Post({ setPosts }) {
+export default function Post({ id, subreddit, title, desc, setPosts }) {
+  
+
   return (
     <div className='w-full h-60 bg-white border-zinc-100 border rounded-md text-black shadow-sm'>
-        <h1>New Post</h1>
-        <p>this is a new post!</p>
+      <div id='content' className='h-[80%] flex'>
+        <div id='vote' className='flex flex-col gap-4 justify-center items-center basis-1/6'>
+          <img src="../public/up-arrow.png" alt="" className='w-8 xl:w-6 invert-[25%]'/>
+          <p>0</p>
+          <img src="../public/down-arrow.png" alt="" className='w-8 xl:w-6 invert-[25%] '/>
+        </div>
+        <div id="info" className='flex flex-col gap-4 py-4 overflow-hidden basis-5/6'>
+          <div id="credentials" className='flex gap-1 items-center'>
+            <a href=""><p className='inline-block border-b border-b-gray-900 font-semibold'>r/osrs</p></a>
+            <span className='text-gray-500'>•</span>
+            <p className='text-gray-500 text-sm'>Posted by alexjachna</p>
+          </div>
+          <p id='title' className='text-lg font-bold'>Hello World</p>
+          <p id='description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, fuga suscipit, esse alias maiores sint dicta beatae reiciendis dolor commodi quae vero soluta, iure nesciunt in mollitia. Quisquam, sed!</p>
+        </div>
+      </div>
+      <div id='comments' className='h-[20%] bg-slate-50 flex items-center gap-3 px-6'>
+        <img src="../public/comments.png" alt="" className='h-6'/>
+        <p>0 Comments</p>
+      </div>
+      
     </div>
   )
 }
