@@ -11,3 +11,11 @@ v1: basic front page UI
 Page contains basic UI and design, with no functionality. Functionality will include the ability to log in, create posts, and like or dislike other posts.
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/1318d1a7-38ca-4140-be91-857da2e6f320)
+
+------------
+
+v2: Updated <Post/> UI
+
+Page now contains newly updated Post design, as well as a form to submit new posts. Current functionality is only limited to the same post being duplicated.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/7e4385d7-5f5f-47cc-ae86-303b483405ea)
