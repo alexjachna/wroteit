@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function Post({ id, subreddit, title, desc, setPosts }) {
+export default function Post({ id, subreddit, title, desc }) {
   
 
   return (
@@ -14,12 +14,12 @@ export default function Post({ id, subreddit, title, desc, setPosts }) {
         </div>
         <div id="info" className='flex flex-col gap-4 py-4 overflow-hidden basis-5/6'>
           <div id="credentials" className='flex gap-1 items-center'>
-            <a href=""><p className='inline-block border-b border-b-gray-900 font-semibold'>r/osrs</p></a>
+            <a href=""><p className='inline-block border-b border-b-gray-900 font-semibold'>r/{subreddit}</p></a>
             <span className='text-gray-500'>•</span>
             <p className='text-gray-500 text-sm'>Posted by alexjachna</p>
           </div>
-          <p id='title' className='text-lg font-bold'>Hello World</p>
-          <p id='description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis perspiciatis, fuga suscipit, esse alias maiores sint dicta beatae reiciendis dolor commodi quae vero soluta, iure nesciunt in mollitia. Quisquam, sed!</p>
+          <p id='title' className='text-lg font-bold'>{title}</p>
+          <p id='description'>{desc}</p>
         </div>
       </div>
       <div id='comments' className='h-[20%] bg-slate-50 flex items-center gap-3 px-6'>
