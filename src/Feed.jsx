@@ -30,6 +30,9 @@ export default function Feed() {
         xl:flex-row xl:justify-center xl:items-start'>   
             <Posts posts={posts}/>
             <CreatePost 
+            subreddit={subreddit}
+            title={title}
+            desc={desc}
             setSubreddit={setSubreddit} 
             setTitle={setTitle} 
             setDesc={setDesc} 
