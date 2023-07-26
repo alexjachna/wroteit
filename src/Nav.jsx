@@ -7,6 +7,10 @@ export default function Nav() {
   const [size, setSize] = useState(window.innerWidth)
   const [showNav, setShowNav] = useState(false)
 
+  function toggleNav(nav) {
+    nav ? setShowNav(false) : setShowNav(true)
+  }
+
   useEffect(() => {
     function handleResize() {
       setSize(window.innerWidth)
@@ -35,12 +39,12 @@ export default function Nav() {
       </>
       : 
       <div className=''>
-        <img src="../public/hamburger.png" alt="" className='w-10' onClick={() => showNav ? setShowNav(false) : setShowNav(true)}/>
+        <img src="../public/hamburger.png" alt="" className='w-10 hover:cursor-pointer' onClick={() => toggleNav(showNav)}/>
         {showNav ? 
         <div className='absolute z-10 top-0 right-0 w-full h-screen bg-white'>
           <div className='h-20 flex justify-between items-center px-12 gap-5 text-zinc-700 border-b border-b-black'>
             <p className='text-2xl'>Wroteit</p>
-            <img src="../public/x-icon.png" alt="" className='w-6' onClick={() => showNav ? setShowNav(false) : setShowNav(true)}/>
+            <img src="../public/x-icon.png" alt="" className='w-6 hover:cursor-pointer' onClick={() => toggleNav(showNav)}/>
           </div>
           <div className='flex flex-col gap-3 text-zinc-700 p-6 border-b border-b-black'>
             <p className='font-bold text-xl'>For you</p>
