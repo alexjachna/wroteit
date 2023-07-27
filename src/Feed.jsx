@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Posts from './Posts'
 import CreatePost from './CreatePost'
-import Post from './Post'
 
 export default function Feed() {
 

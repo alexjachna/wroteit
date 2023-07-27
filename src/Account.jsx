@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Account() {
     const [account, setAccount] = useState(false)
+    const navigate = useNavigate()
 
   return (
     <div className='hidden lg:block relative' >
@@ -11,7 +13,7 @@ export default function Account() {
             <div className='bg-zinc-50 flex p-2 w-full gap-2'>
               <img src="./public/vite.svg" alt="" className='border-slate-200 border-2 p-3 h-14 shadow-sm rounded-full'/>
               <div>
-                <p className='font-bold text-blue-600'>Alex Jachna</p>
+                <p className='font-bold text-blue-600'>alexjachna</p>
                 <p className='text-gray-800'>CCIT/CS Alumnus at UofT</p>
               </div>
             </div>
@@ -19,7 +21,7 @@ export default function Account() {
               <p className='text-green-600 font-semibold text-sm'>View Profile</p>
             </div>
             <div>
-              <p className='text-gray-500 text-sm py-2 hover:cursor-pointer hover:text-gray-700'>Sign out</p>
+              <p className='text-gray-500 text-sm py-2 hover:cursor-pointer hover:text-gray-700' onClick={() => navigate("/")}>Sign out</p>
             </div>
         </div> :
         null  
