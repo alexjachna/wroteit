@@ -27,3 +27,12 @@ v3: Updated Nav bar with responsiveness (no functionality in terms of being able
 Page now allows users to open a nav bar on mobile, where they can access the 'search' option, their profile, as well as their communities that they are subscribed by default.
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/6e88afa8-eac7-4941-b827-b5d4a751f10d)
+
+v4: Added raw form of 'login' page
+
+Wroteit now uses react-router-dom to provide the ability to navigate between pages. This will be used to navigate between pages, such as the 'login' page, and the current 'home' page. It will also be used to view a users profile page. EXTREMELY BARE-BONES version of the login page shown below. Will be updated to match the style/theme of the rest of the page.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/070444d9-c2f2-4bb6-ba53-1361655468cd)
+
+
+
