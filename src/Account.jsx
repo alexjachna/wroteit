@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Account() {
+export default function Account({ username }) {
     const [account, setAccount] = useState(false)
     const navigate = useNavigate()
 
@@ -13,8 +13,8 @@ export default function Account() {
             <div className='bg-zinc-50 flex p-2 w-full gap-2'>
               <img src="./public/vite.svg" alt="" className='border-slate-200 border-2 p-3 h-14 shadow-sm rounded-full'/>
               <div>
-                <p className='font-bold text-blue-600'>alexjachna</p>
-                <p className='text-gray-800'>CCIT/CS Alumnus at UofT</p>
+                <p className='font-bold text-blue-600'>{username}</p>
+                <p className='text-gray-800'>Wroteit User</p>
               </div>
             </div>
             <div className='w-11/12 border-green-600 border rounded text-center hover:bg-green-50 hover:cursor-pointer'>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import Account from './Account'
 
-export default function Nav() {
+export default function Nav({ username }) {
 
   const [size, setSize] = useState(window.innerWidth)
   const [showNav, setShowNav] = useState(false)
@@ -35,7 +35,7 @@ export default function Nav() {
           <img src="./public/magnifying-glass.png" alt="" className='w-6 absolute top-3 left-3 invert-[50%]'/>
           <input type="text" placeholder='Search...' className='w-full h-12 rounded-lg text-black border-slate-200 border px-12 active:border-slate-400'/>
         </div>
-        <Account />
+        <Account username={username} />
       </>
       : 
       <div className=''>

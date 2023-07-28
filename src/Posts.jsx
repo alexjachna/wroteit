@@ -7,8 +7,9 @@ export default function Posts({ posts }) {
       {posts.map(post => {
         return (
           <Post
+            username={post.username}
             id={post.id}
-            subreddit={post.subreddit}
+            community={post.community}
             title={post.title}
             desc={post.desc}
           />
