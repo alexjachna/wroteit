@@ -17,7 +17,7 @@ export default function Account({ username }) {
                 <p className='text-gray-800'>Wroteit User</p>
               </div>
             </div>
-            <div className='w-11/12 border-green-600 border rounded text-center hover:bg-green-50 hover:cursor-pointer'>
+            <div onClick={() => navigate("/Profile.jsx")} className='w-11/12 border-green-600 border rounded text-center hover:bg-green-50 hover:cursor-pointer'>
               <p className='text-green-600 font-semibold text-sm'>View Profile</p>
             </div>
             <div>
