@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import Account from './Account'
 
-export default function Nav({ username }) {
+export default function Nav({ username, bio }) {
 
   const [size, setSize] = useState(window.innerWidth)
   const [showNav, setShowNav] = useState(false)
+  const navigate = useNavigate()
 
   function toggleNav(nav) {
     nav ? setShowNav(false) : setShowNav(true)
@@ -25,7 +27,7 @@ export default function Nav({ username }) {
 
   return (
     <div className='flex justify-evenly items-center w-full bg-zinc-100 border-b-slate-500 border-b-[1px] border-opacity-25'>
-      <div className='flex items-center h-20'>
+      <div className='flex items-center h-20 hover:cursor-pointer' onClick={() => navigate('/Home.jsx')}>
         <img src="./public/wroteit-logo.png" alt="wroteit logo" className='w-12' />
         <p className='text-zinc-700 text-lg font-medium'>Wroteit</p>
       </div>
@@ -35,7 +37,7 @@ export default function Nav({ username }) {
           <img src="./public/magnifying-glass.png" alt="" className='w-6 absolute top-3 left-3 invert-[50%]'/>
           <input type="text" placeholder='Search...' className='w-full h-12 rounded-lg text-black border-slate-200 border px-12 active:border-slate-400'/>
         </div>
-        <Account username={username} />
+        <Account username={username} bio={bio} />
       </>
       : 
       <div className=''>

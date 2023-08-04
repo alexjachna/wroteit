@@ -11,10 +11,7 @@ export default function Login({ username, setUsername }) {
             <p className='text-black text-2xl'>Wroteit</p>
             <input type="text" className='border-b px-2 h-10 text-black focus:outline-none' placeholder='username' onChange={e => setUsername(e.target.value)} required/>
             <input type="password" className='border-b px-2 h-10 text-black focus:outline-none' placeholder='password' required/>
-            <button className='text-white w-36 h-12 bg-blue-500' onClick={() => {
-              console.log(username)
-              navigate('/Home.jsx')
-            }}>Login</button>
+            <button className='text-white w-36 h-12 bg-blue-500' onClick={() => {navigate('/Home.jsx')}}>Login</button>
         </div>
     </div>
     
