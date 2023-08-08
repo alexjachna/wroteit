@@ -21,3 +21,23 @@
 #root {
   @apply flex justify-center items-center
 }
+
+.custom-shape-divider-top-1691282975 {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1691282975 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 47px;
+}
+
+.custom-shape-divider-top-1691282975 .shape-fill {
+    fill: #FFFFFF;
+}

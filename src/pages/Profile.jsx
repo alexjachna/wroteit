@@ -6,26 +6,25 @@ import Post from "../Post";
 export default function Profile({ username, bio, posts }) {
   const navigate = useNavigate();
 
-  function ifPosted(post) {
-    if (post.username == username) {
-      return true;
-    }
-  }
+  let filteredPosts = posts.filter((p) => p.username == username).length;
 
   return (
-    <div className="bg-zinc-50 w-full h-fit flex flex-col items-center gap-4">
+    <div className="bg-zinc-50 w-full h-fit flex flex-col items-center gap-4 pb-12">
       <Nav username={username} bio={bio} />
 
-      <div className="flex flex-col lg:px-60 w-full">
+      {/* Container with Profile title + Profile card/Posts Section */}
+      <div className="flex flex-col px-2 lg:px-60 w-full">
         <p className="text-black text-4xl font-bold py-7">My Profile</p>
 
-        <div className="flex w-full">
+        {/* Profile Card and Posts section */}
+        <div className="flex flex-col gap-4 lg:flex-row w-full">
+          {/* Profile Card */}
           <div className="relative w-full h-fit xl:w-1/2 flex flex-col items-center gap-2 bg-white border-zinc-100 border rounded-md text-black shadow-sm">
             <div className="bg-green-100 rounded-t w-full h-60 py-4 flex justify-center items-center">
               <img
                 src="/public/vite.svg"
                 alt=""
-                className="border-slate-200 border-2 p-6 h-36 xl:h-48 shadow-sm rounded-full z-10 bg-white"
+                className="border-slate-200 border-2 p-6 h-36 xl:h-48 shadow-sm rounded-full bg-white"
               />
             </div>
 
@@ -45,19 +44,45 @@ export default function Profile({ username, bio, posts }) {
             </div>
           </div>
 
-          <div className=" w-11/12 h-1/2 flex flex-col items-center p-4 gap-4">
+          {/* Your Posts */}
+          <div className="w-full h-1/2 flex flex-col items-center gap-4">
             <p className="text-black text-2xl">Your posts</p>
-            {posts
-              .filter((p) => p.username == username)
-              .map((post) => (
-                <Post
-                  username={post.username}
-                  id={post.id}
-                  community={post.community}
-                  title={post.title}
-                  desc={post.desc}
-                />
-              ))}
+            <div
+              className={`flex flex-col items-center w-full gap-4 ${
+                !filteredPosts ? "justify-center" : ""
+              }`}
+            >
+              {filteredPosts > 0 ? (
+                posts
+                  .filter((p) => p.username == username)
+                  .map((post) => (
+                    <Post
+                      username={post.username}
+                      id={post.id}
+                      community={post.community}
+                      title={post.title}
+                      desc={post.desc}
+                    />
+                  ))
+              ) : (
+                <div className="flex flex-col justify-center items-center text-center">
+                  <p className="text-zinc-500 text-xl">
+                    You currently have no posts!
+                  </p>
+                  <p className="text-zinc-500 text-lg">
+                    Create your first post by visiting the{" "}
+                    <span
+                      className="text-blue-500 underline hover:cursor-pointer"
+                      onClick={() => navigate("/Home.jsx")}
+                    >
+                      home page
+                    </span>
+                    !
+                  </p>
+                  <img src="/public/wroteit-logo.png" alt="" className="w-24" />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
