@@ -43,3 +43,11 @@ v5: Added 'update profile' page, and Profile page showcasing users own posts, an
 Wroteit now allows users to view their profiles, as well as view their posts they have made. They are also given the ability to change their username, and their bio, to give personality to the account. Currently, the profile page is not responsive, and is currently made for only desktop. Will be fixed in the next version!
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/ba42a028-6510-4aee-a614-f9f8d918b343)
+
+------------
+
+v6: Added final updates before CODING WEEK (read for more information)
+
+Added finals update preparations for coding week, which is a 4-day coding week where I will attempt to finish the project in a short amount of time, which will include deadlines for each day. The objectives are listed below. Things added this week are: Updated Login page, updated Profile page (text on whether user has posted or not), and basic repsonsiveness throughout the page.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/e89ca508-b165-4ed2-8efc-d6ad7b8ba512)
