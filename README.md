@@ -51,3 +51,12 @@ v6: Added final updates before CODING WEEK (read for more information)
 Added finals update preparations for coding week, which is a 4-day coding week where I will attempt to finish the project in a short amount of time, which will include deadlines for each day. The objectives are listed below. Things added this week are: Updated Login page, updated Profile page (text on whether user has posted or not), and basic repsonsiveness throughout the page.
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/e89ca508-b165-4ed2-8efc-d6ad7b8ba512)
+
+------------
+
+v7 (DAY 1 CODING WEEK): Added community pages/fixed 'unique key' problem
+
+Users can now click on the community of a post to navigate to its own community page, where it will only include posts of that community. Still attempting to make it so users can post in that specific community when visiting that page.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/33abba56-6b16-4899-82b4-b24eda2eae12)
+
