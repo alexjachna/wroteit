@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Post({ username, id, community, title, desc }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="w-full h-60 bg-white border-zinc-100 border rounded-md text-black shadow-sm">
+    <div
+      className="w-full h-60 bg-white border-zinc-100 border rounded-md text-black shadow-sm"
+      key={id}
+    >
       <div id="content" className="h-[80%] flex">
         <div
           id="vote"
@@ -25,11 +31,12 @@ export default function Post({ username, id, community, title, desc }) {
           className="flex flex-col gap-4 py-4 overflow-hidden basis-5/6"
         >
           <div id="credentials" className="flex gap-1 items-center">
-            <a href="">
-              <p className="inline-block border-b border-b-gray-900 font-semibold">
-                w/{community}
-              </p>
-            </a>
+            <p
+              className="inline-block border-b border-b-gray-900 font-semibold hover:cursor-pointer"
+              onClick={() => navigate(`/${community}`)}
+            >
+              w/{community}
+            </p>
             <span className="text-gray-500">•</span>
             <p className="text-gray-500 text-sm">Posted by {username}</p>
           </div>

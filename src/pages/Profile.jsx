@@ -33,7 +33,7 @@ export default function Profile({ username, bio, posts }) {
               <p className="text-black font-light text-xl">{bio}</p>
               <div
                 className="absolute flex items-center justify-center rounded-full bg-zinc-100 bottom-3 right-3 w-8 h-8"
-                onClick={() => navigate("/EditProfile.jsx")}
+                onClick={() => navigate("/EditProfile")}
               >
                 <img
                   src="/public/edit.png"
@@ -45,20 +45,20 @@ export default function Profile({ username, bio, posts }) {
           </div>
 
           {/* Your Posts */}
-          <div className="w-full h-1/2 flex flex-col items-center gap-4">
+          <div className="w-full flex flex-col items-center gap-4">
             <p className="text-black text-2xl">Your posts</p>
             <div
               className={`flex flex-col items-center w-full gap-4 ${
                 !filteredPosts ? "justify-center" : ""
               }`}
             >
-              {filteredPosts > 0 ? (
+              {filteredPosts ? (
                 posts
                   .filter((p) => p.username == username)
                   .map((post) => (
                     <Post
                       username={post.username}
-                      id={post.id}
+                      key={post.id}
                       community={post.community}
                       title={post.title}
                       desc={post.desc}
@@ -73,7 +73,7 @@ export default function Profile({ username, bio, posts }) {
                     Create your first post by visiting the{" "}
                     <span
                       className="text-blue-500 underline hover:cursor-pointer"
-                      onClick={() => navigate("/Home.jsx")}
+                      onClick={() => navigate("/Home")}
                     >
                       home page
                     </span>

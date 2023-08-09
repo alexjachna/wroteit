@@ -28,7 +28,7 @@ export default function Nav({ username, bio }) {
     <div className="flex justify-evenly items-center w-full bg-zinc-100 border-b-slate-500 border-b-[1px] border-opacity-25">
       <div
         className="flex items-center h-20 hover:cursor-pointer"
-        onClick={() => navigate("/Home.jsx")}
+        onClick={() => navigate("/Home")}
       >
         <img
           src="./public/wroteit-logo.png"
@@ -84,7 +84,7 @@ export default function Nav({ username, bio }) {
                 </div>
                 <div
                   className="flex gap-4"
-                  onClick={() => navigate("/Profile.jsx")}
+                  onClick={() => navigate("/Profile")}
                 >
                   <img src="../public/profile.png" alt="" className="h-6" />
                   <p>Profile</p>

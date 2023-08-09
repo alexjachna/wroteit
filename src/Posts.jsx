@@ -8,7 +8,7 @@ export default function Posts({ posts }) {
         return (
           <Post
             username={post.username}
-            id={post.id}
+            key={post.id}
             community={post.community}
             title={post.title}
             desc={post.desc}

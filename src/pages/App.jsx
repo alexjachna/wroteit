@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import Profile from "./Profile";
+import Community from "./Community";
 import { useState, useEffect } from "react";
 import EditProfile from "./EditProfile";
 
@@ -42,7 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login setUsername={setUsername} />} />
           <Route
-            path="/Home.jsx"
+            path="/Home"
             element={
               <Home
                 username={username}
@@ -53,17 +54,28 @@ function App() {
             }
           />
           <Route
-            path="/Profile.jsx"
+            path="/Profile"
             element={<Profile username={username} bio={bio} posts={posts} />}
           />
           <Route
-            path="/EditProfile.jsx"
+            path="/EditProfile"
             element={
               <EditProfile
                 username={username}
                 setUsername={setUsername}
                 bio={bio}
                 setBio={setBio}
+              />
+            }
+          />
+          <Route
+            path="/:community"
+            element={
+              <Community
+                username={username}
+                bio={bio}
+                posts={posts}
+                setPosts={setPosts}
               />
             }
           />

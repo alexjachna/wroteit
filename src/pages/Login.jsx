@@ -56,7 +56,7 @@ export default function Login({ setUsername }) {
         <button
           className="text-white w-36 h-12 bg-blue-500"
           onClick={() => {
-            navigate("/Home.jsx");
+            navigate("/Home");
           }}
         >
           Login

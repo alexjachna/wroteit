@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Posts from "./Posts";
 import CreatePost from "./CreatePost";
 
-export default function Feed({ username, posts, setPosts }) {
+export default function Feed({ username, posts, setPosts, ifCommunity }) {
   const [community, setCommunity] = useState("");
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
