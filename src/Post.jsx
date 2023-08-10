@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Post({ username, id, community, title, desc }) {
   const navigate = useNavigate();
+  const [likes, setLikes] = useState(0);
+
+  function handleLike(liked) {
+    liked ? setLikes(likes + 1) : setLikes(likes - 1);
+  }
 
   return (
     <div
@@ -16,14 +21,18 @@ export default function Post({ username, id, community, title, desc }) {
         >
           <img
             src="../public/up-arrow.png"
-            alt=""
-            className="w-8 xl:w-6 invert-[25%]"
+            alt="upvote-arrow"
+            id="up-arrow-selected"
+            className="w-8 xl:w-6 hover:cursor-pointer"
+            onClick={() => handleLike(true)}
           />
-          <p>0</p>
+          <p className="font-bold">{likes}</p>
           <img
             src="../public/down-arrow.png"
-            alt=""
-            className="w-8 xl:w-6 invert-[25%] "
+            alt="downvote-arrow"
+            id="down-arrow-selected"
+            className="w-8 xl:w-6 hover:cursor-pointer"
+            onClick={() => handleLike(false)}
           />
         </div>
         <div

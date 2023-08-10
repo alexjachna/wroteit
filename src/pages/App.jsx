@@ -10,7 +10,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("Wroteit User");
   const [posts, setPosts] = useState(() => {
-    const localVal = localStorage.getItem("items");
+    const localVal = sessionStorage.getItem("items");
     if (localVal == null) {
       return [
         {
@@ -34,7 +34,7 @@ function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(posts));
+    sessionStorage.setItem("items", JSON.stringify(posts));
   }, [posts]);
 
   return (

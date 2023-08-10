@@ -8,6 +8,7 @@ export default function CreatePost({
   setTitle,
   setDesc,
   createPost,
+  ifCommunity,
 }) {
   function handleCreatePost(e) {
     e.preventDefault();
@@ -23,21 +24,27 @@ export default function CreatePost({
     <div className="w-full max-w-md h-fit bg-white border-gray-100 border rounded-lg">
       <div className="bg-green-100 flex items-center h-20 px-6 rounded-t-lg">
         <img src="../public/house.png" alt="" className="w-5" />
-        <p className="text-black font-semibold text-lg pl-2">Home</p>
+        <p className="text-black font-semibold text-lg pl-2">
+          {ifCommunity ? ifCommunity : "Home"}
+        </p>
       </div>
       <form
         onSubmit={handleCreatePost}
         className="m-3 flex flex-col gap-2 items-center"
       >
-        <input
-          name="community"
-          value={community}
-          onChange={(e) => setCommunity(e.target.value)}
-          type="text"
-          placeholder="community"
-          className="w-full border rounded-sm px-2 text-black"
-          required
-        />
+        {ifCommunity ? (
+          setCommunity(ifCommunity)
+        ) : (
+          <input
+            name="community"
+            value={community}
+            onChange={(e) => setCommunity(e.target.value)}
+            type="text"
+            placeholder="community"
+            className="w-full border rounded-sm px-2 text-black"
+            required
+          />
+        )}
         <input
           name="title"
           value={title}

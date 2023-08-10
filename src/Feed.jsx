@@ -35,6 +35,7 @@ export default function Feed({ username, posts, setPosts, ifCommunity }) {
         setTitle={setTitle}
         setDesc={setDesc}
         createPost={createPost}
+        ifCommunity={ifCommunity}
       />
     </div>
   );

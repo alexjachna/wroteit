@@ -42,3 +42,11 @@
 .custom-shape-divider-top-1691282975 .shape-fill {
     fill: #FFFFFF;
 }
+
+#up-arrow-selected:hover {
+  filter: invert(91%) sepia(18%) saturate(1694%) hue-rotate(69deg) brightness(100%) contrast(103%);
+}
+
+#down-arrow-selected:hover {
+  filter: invert(50%) sepia(97%) saturate(3395%) hue-rotate(202deg) brightness(99%) contrast(96%);
+}
