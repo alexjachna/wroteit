@@ -62,7 +62,7 @@ Users can now click on the community of a post to navigate to its own community 
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/33abba56-6b16-4899-82b4-b24eda2eae12)
 
-v7.2: Added 'vote' component; dealt new problem involving 'likes/voting' in posts (see line 53 & 69)
+v7.2: Added 'vote' component; dealt new problem involving 'likes/voting' in posts (see v6 UPDATE & v7.2 ISSUE)
 
 This version contains the new 'vote' component which will be used for post likes/dislikes, as well as comment likes/dislikes in the future. Image contains an example of a user liking a post, which signals to the user that they have liked/disliked a post.
 
