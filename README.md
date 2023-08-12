@@ -50,13 +50,22 @@ v6: Added final updates before CODING WEEK (read for more information)
 
 Added finals update preparations for coding week, which is a 4-day coding week where I will attempt to finish the project in a short amount of time, which will include deadlines for each day. The objectives are listed below. Things added this week are: Updated Login page, updated Profile page (text on whether user has posted or not), and basic repsonsiveness throughout the page.
 
+UPDATE: Result of Coding Week ended with an issue involving the 'voting' system for each post. Major changes will be required to be made towards each 'post' object in order to fix the issue. Will be resolved in versions after v7.2.
+
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/e89ca508-b165-4ed2-8efc-d6ad7b8ba512)
 
 ------------
 
-v7 (DAY 1 CODING WEEK): Added community pages/fixed 'unique key' problem
+v7.1: Added community pages/fixed 'unique key' problem
 
 Users can now click on the community of a post to navigate to its own community page, where it will only include posts of that community. Still attempting to make it so users can post in that specific community when visiting that page.
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/33abba56-6b16-4899-82b4-b24eda2eae12)
 
+v7.2: Added 'vote' component; dealt new problem involving 'likes/voting' in posts (see line 53 & 69)
+
+This version contains the new 'vote' component which will be used for post likes/dislikes, as well as comment likes/dislikes in the future. Image contains an example of a user liking a post, which signals to the user that they have liked/disliked a post.
+
+ISSUE: The current issue with this version is involving the likes/dislikes system for each post. Each post has a fully functioning voting system (users can like/dislike only once), however, the number of likes/dislikes reset each page change, thus causing the voting system to be entirely irrelevent (voting feels temporary and wrong). A potential and possible solution to the fix is to add a new property to each 'post' object/component, that keeps track of its number of likes (similar to each post having its own unique ID).
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/b2199fd4-301d-41d5-8cf1-ae4df6ab3799)
