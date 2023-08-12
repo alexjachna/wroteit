@@ -35,7 +35,9 @@ function App() {
 
   useEffect(() => {
     sessionStorage.setItem("items", JSON.stringify(posts));
-  }, [posts]);
+    sessionStorage.setItem("username", username);
+    setUsername(sessionStorage.getItem("username"));
+  }, []);
 
   return (
     <div className="w-full h-screen flex flex-col">

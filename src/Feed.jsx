@@ -15,7 +15,13 @@ export default function Feed({ username, posts, setPosts, ifCommunity }) {
 
     setPosts((currentPosts) => {
       return [
-        { username, id: crypto.randomUUID(), community, title, desc },
+        {
+          username,
+          id: crypto.randomUUID(),
+          community,
+          title,
+          desc,
+        },
         ...currentPosts,
       ];
     });

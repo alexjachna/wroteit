@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Vote from "./Vote";
 
 export default function Post({ username, id, community, title, desc }) {
   const navigate = useNavigate();
   const [likes, setLikes] = useState(0);
-
-  function handleLike(liked) {
-    liked ? setLikes(likes + 1) : setLikes(likes - 1);
-  }
 
   return (
     <div
@@ -15,26 +12,7 @@ export default function Post({ username, id, community, title, desc }) {
       key={id}
     >
       <div id="content" className="h-[80%] flex">
-        <div
-          id="vote"
-          className="flex flex-col gap-4 justify-center items-center basis-1/6"
-        >
-          <img
-            src="../public/up-arrow.png"
-            alt="upvote-arrow"
-            id="up-arrow-selected"
-            className="w-8 xl:w-6 hover:cursor-pointer"
-            onClick={() => handleLike(true)}
-          />
-          <p className="font-bold">{likes}</p>
-          <img
-            src="../public/down-arrow.png"
-            alt="downvote-arrow"
-            id="down-arrow-selected"
-            className="w-8 xl:w-6 hover:cursor-pointer"
-            onClick={() => handleLike(false)}
-          />
-        </div>
+        <Vote likes={likes} setLikes={setLikes} />
         <div
           id="info"
           className="flex flex-col gap-4 py-4 overflow-hidden basis-5/6"
