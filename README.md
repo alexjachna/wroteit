@@ -69,3 +69,13 @@ This version contains the new 'vote' component which will be used for post likes
 ISSUE: The current issue with this version is involving the likes/dislikes system for each post. Each post has a fully functioning voting system (users can like/dislike only once), however, the number of likes/dislikes reset each page change, thus causing the voting system to be entirely irrelevent (voting feels temporary and wrong). A potential and possible solution to the fix is to add a new property to each 'post' object/component, that keeps track of its number of likes (similar to each post having its own unique ID).
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/b2199fd4-301d-41d5-8cf1-ae4df6ab3799)
+
+------------
+
+v8: Added fully functioning voting system on posts
+
+This version contains a fully functioning voting system where users can like/dislike posts. Fix contains every 'Post' component containing a 'likes' property, that saves the number of likes throughout the application. This allows the ability to hop to a new page on the application, and the previous number of likes saves, as well as saving if the user has liked the post or not. v8 also contains changes to images, where images are now directly imported through /src/assets, rather than ../public.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/8345b1aa-0a63-4aa1-8ae5-a5b42af66324)
+![image](https://github.com/alexjachna/wroteit/assets/57778785/89311740-38d0-4799-b373-904ff0502cae)
+
