@@ -3,11 +3,19 @@ import Home from "./Home";
 import Login from "./Login";
 import Profile from "./Profile";
 import Community from "./Community";
+import PostPage from "./PostPage";
 import { useState, useEffect } from "react";
 import EditProfile from "./EditProfile";
 
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(() => {
+    const currentUsername = localStorage.getItem("username");
+    if (currentUsername == null) {
+      return "";
+    } else {
+      return currentUsername;
+    }
+  });
   const [bio, setBio] = useState("Wroteit User");
   const [posts, setPosts] = useState(() => {
     const localVal = sessionStorage.getItem("items");
@@ -19,6 +27,9 @@ function App() {
           community: "react",
           title: "hello world",
           desc: "hello world, this is react.",
+          likes: 36,
+          liked: false,
+          disliked: false,
         },
         {
           username: "krazykoala45",
@@ -26,6 +37,9 @@ function App() {
           community: "theworld",
           title: "This is my World.",
           desc: "Hello world, the world is mine!!!!",
+          likes: 122,
+          liked: false,
+          disliked: false,
         },
       ];
     }
@@ -33,11 +47,43 @@ function App() {
     return JSON.parse(localVal);
   });
 
+  function handleVote(id, num, ifLiked, setLiked, setDisliked) {
+    setPosts((currentPosts) => {
+      return currentPosts.map((post) => {
+        if (post.id === id) {
+          if (ifLiked) {
+            return {
+              ...post,
+              likes: post.likes + num,
+              liked: setLiked,
+              disliked: setDisliked,
+            };
+          } else {
+            return {
+              ...post,
+              likes: post.likes - num,
+              liked: setLiked,
+              disliked: setDisliked,
+            };
+          }
+        }
+        return post;
+      });
+    });
+  }
+
   useEffect(() => {
     sessionStorage.setItem("items", JSON.stringify(posts));
-    sessionStorage.setItem("username", username);
-    setUsername(sessionStorage.getItem("username"));
+    localStorage.setItem("username", username);
   }, []);
+
+  useEffect(() => {
+    setPosts((currentPosts) => {
+      return currentPosts.map((post) => {
+        return { ...post, liked: false, disliked: false };
+      });
+    });
+  }, [username]);
 
   return (
     <div className="w-full h-screen flex flex-col">
@@ -52,12 +98,20 @@ function App() {
                 bio={bio}
                 posts={posts}
                 setPosts={setPosts}
+                handleVote={handleVote}
               />
             }
           />
           <Route
             path="/Profile"
-            element={<Profile username={username} bio={bio} posts={posts} />}
+            element={
+              <Profile
+                username={username}
+                bio={bio}
+                posts={posts}
+                handleVote={handleVote}
+              />
+            }
           />
           <Route
             path="/EditProfile"
@@ -78,6 +132,19 @@ function App() {
                 bio={bio}
                 posts={posts}
                 setPosts={setPosts}
+                handleVote={handleVote}
+              />
+            }
+          />
+          <Route
+            path="/post/:id"
+            element={
+              <PostPage
+                username={username}
+                bio={bio}
+                posts={posts}
+                setPosts={setPosts}
+                handleVote={handleVote}
               />
             }
           />

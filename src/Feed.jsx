@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import Posts from "./Posts";
 import CreatePost from "./CreatePost";
 
-export default function Feed({ username, posts, setPosts, ifCommunity }) {
+export default function Feed({
+  username,
+  posts,
+  setPosts,
+  ifCommunity,
+  handleVote,
+}) {
   const [community, setCommunity] = useState("");
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -21,6 +27,9 @@ export default function Feed({ username, posts, setPosts, ifCommunity }) {
           community,
           title,
           desc,
+          likes: 0,
+          liked: false,
+          disliked: false,
         },
         ...currentPosts,
       ];
@@ -32,7 +41,7 @@ export default function Feed({ username, posts, setPosts, ifCommunity }) {
       className="w-full h-fit flex flex-col-reverse items-center gap-4
         xl:flex-row xl:justify-center xl:items-start"
     >
-      <Posts posts={posts} />
+      <Posts posts={posts} handleVote={handleVote} />
       <CreatePost
         community={community}
         title={title}

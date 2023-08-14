@@ -3,7 +3,13 @@ import Nav from "../Nav";
 import Feed from "../Feed";
 import { useParams } from "react-router-dom";
 
-export default function Community({ username, bio, posts, setPosts }) {
+export default function Community({
+  username,
+  bio,
+  posts,
+  setPosts,
+  handleVote,
+}) {
   const { community } = useParams();
 
   return (
@@ -18,6 +24,7 @@ export default function Community({ username, bio, posts, setPosts }) {
           posts={posts.filter((p) => p.community == community)}
           setPosts={setPosts}
           ifCommunity={community}
+          handleVote={handleVote}
         />
       </div>
     </div>

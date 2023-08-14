@@ -1,4 +1,5 @@
 import React from "react";
+import House from "./assets/house.png";
 
 export default function CreatePost({
   community,
@@ -23,7 +24,7 @@ export default function CreatePost({
   return (
     <div className="w-full max-w-md h-fit bg-white border-gray-100 border rounded-lg">
       <div className="bg-green-100 flex items-center h-20 px-6 rounded-t-lg">
-        <img src="../public/house.png" alt="" className="w-5" />
+        <img src={House} alt="" className="w-5" />
         <p className="text-black font-semibold text-lg pl-2">
           {ifCommunity ? ifCommunity : "Home"}
         </p>

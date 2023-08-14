@@ -1,9 +1,9 @@
 import React from "react";
 import Nav from "../Nav";
 import { useNavigate } from "react-router-dom";
-import Post from "../Post";
+import Posts from "../Posts";
 
-export default function Profile({ username, bio, posts }) {
+export default function Profile({ username, bio, posts, handleVote }) {
   const navigate = useNavigate();
 
   let filteredPosts = posts.filter((p) => p.username == username).length;
@@ -53,17 +53,10 @@ export default function Profile({ username, bio, posts }) {
               }`}
             >
               {filteredPosts ? (
-                posts
-                  .filter((p) => p.username == username)
-                  .map((post) => (
-                    <Post
-                      username={post.username}
-                      key={post.id}
-                      community={post.community}
-                      title={post.title}
-                      desc={post.desc}
-                    />
-                  ))
+                <Posts
+                  posts={posts.filter((p) => p.username == username)}
+                  handleVote={handleVote}
+                />
               ) : (
                 <div className="flex flex-col justify-center items-center text-center">
                   <p className="text-zinc-500 text-xl">

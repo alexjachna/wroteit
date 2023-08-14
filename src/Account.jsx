@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import viteImg from "./assets/vite.svg";
 
 export default function Account({ username, bio }) {
   const [account, setAccount] = useState(false);
@@ -8,7 +9,7 @@ export default function Account({ username, bio }) {
   return (
     <div className="hidden lg:block relative">
       <img
-        src="./public/vite.svg"
+        src={viteImg}
         alt=""
         className="border-slate-200 border-2 p-3 shadow-sm rounded-full hover:cursor-pointer"
         onClick={() => (account ? setAccount(false) : setAccount(true))}
@@ -17,7 +18,7 @@ export default function Account({ username, bio }) {
         <div className="absolute flex flex-col items-center top-[calc(100%+5px)] right-0 w-60 h-fit bg-white border-zinc-300 border rounded shadow-md">
           <div className="bg-zinc-50 flex p-2 w-full gap-2">
             <img
-              src="./public/vite.svg"
+              src={viteImg}
               alt=""
               className="border-slate-200 border-2 p-3 h-14 shadow-sm rounded-full"
             />
