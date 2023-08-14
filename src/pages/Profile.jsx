@@ -2,6 +2,9 @@ import React from "react";
 import Nav from "../Nav";
 import { useNavigate } from "react-router-dom";
 import Posts from "../Posts";
+import viteLogo from "../assets/vite.svg";
+import editImg from "../assets/edit.png";
+import wroteitLogo from "../assets/wroteit-logo.png";
 
 export default function Profile({ username, bio, posts, handleVote }) {
   const navigate = useNavigate();
@@ -22,7 +25,7 @@ export default function Profile({ username, bio, posts, handleVote }) {
           <div className="relative w-full h-fit xl:w-1/2 flex flex-col items-center gap-2 bg-white border-zinc-100 border rounded-md text-black shadow-sm">
             <div className="bg-green-100 rounded-t w-full h-60 py-4 flex justify-center items-center">
               <img
-                src="/public/vite.svg"
+                src={viteLogo}
                 alt=""
                 className="border-slate-200 border-2 p-6 h-36 xl:h-48 shadow-sm rounded-full bg-white"
               />
@@ -35,11 +38,7 @@ export default function Profile({ username, bio, posts, handleVote }) {
                 className="absolute flex items-center justify-center rounded-full bg-zinc-100 bottom-3 right-3 w-8 h-8"
                 onClick={() => navigate("/EditProfile")}
               >
-                <img
-                  src="/public/edit.png"
-                  alt=""
-                  className="w-4 invert-[70%]"
-                />
+                <img src={editImg} alt="" className="w-4 invert-[70%]" />
               </div>
             </div>
           </div>
@@ -72,7 +71,7 @@ export default function Profile({ username, bio, posts, handleVote }) {
                     </span>
                     !
                   </p>
-                  <img src="/public/wroteit-logo.png" alt="" className="w-24" />
+                  <img src={wroteitLogo} alt="" className="w-24" />
                 </div>
               )}
             </div>
