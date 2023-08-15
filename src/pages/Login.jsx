@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
+import wroteitLogo from "../assets/wroteit-logo.png";
 
 export default function Login({ setUsername }) {
   const navigate = useNavigate();
@@ -8,11 +9,7 @@ export default function Login({ setUsername }) {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <div className="flex justify-center items-center basis-1/5 p-12">
-        <img
-          src="/public/wroteit-logo.png"
-          alt=""
-          className="w-48 border-blue-300"
-        />
+        <img src={wroteitLogo} alt="" className="w-48 border-blue-300" />
       </div>
 
       <div className="relative w-full basis-4/5 bg-zinc-600 flex flex-col justify-center items-center gap-6">

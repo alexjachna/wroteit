@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "../Nav";
 import Post from "../Post";
+import Comment from "../Comment";
 
 export default function PostPage({
   username,
@@ -10,18 +11,82 @@ export default function PostPage({
   setPosts,
   handleVote,
 }) {
+  const [yourComms, setYourComms] = useState(false);
+  const [size, setSize] = useState(window.innerWidth);
   const { id } = useParams();
+
+  useEffect(() => {
+    function handleResize() {
+      setSize(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerWidth]);
 
   return (
     <div className="w-full h-fit flex flex-col">
       <Nav username={username} bio={bio} />
       <div className="px-2 lg:px-60 flex flex-col bg-zinc-50 justify-center align-center w-full">
-        <h1 className="text-black text-4xl font-bold w-full py-7">yo</h1>
-        {posts.map((post) => {
-          if (post.id == id) {
-            return <Post {...post} handleVote={handleVote} key={post.id} />;
-          }
-        })}
+        <h1 className="text-black text-4xl font-bold w-full py-7">
+          Hello world
+        </h1>
+
+        <div className="flex flex-col xl:flex-row-reverse gap-4">
+          {/* Your Communities */}
+          {size >= 1280 ? (
+            <div className="w-full xl:max-w-sm h-fit bg-white border-gray-100 border rounded-lg">
+              <div className="bg-green-100 flex items-center h-20 px-6 rounded-t-lg">
+                <p className="text-black font-semibold text-lg pl-2">
+                  Your Communities
+                </p>
+              </div>
+              <div className="p-4 flex flex-col gap-4">
+                <p>w/react</p>
+                <p>w/react</p>
+                <p>w/react</p>
+                <p>w/react</p>
+                <p>w/react</p>
+                <p>w/react</p>
+              </div>
+            </div>
+          ) : null}
+
+          {/* Post & Comments */}
+          <div className="w-full h-fit flex flex-col gap-4">
+            {posts.map((post) => {
+              if (post.id == id) {
+                return <Post {...post} handleVote={handleVote} key={post.id} />;
+              }
+            })}
+
+            <div className=" p-4 border-b">
+              <form>
+                <textarea
+                  name="description"
+                  placeholder="what is your reply?"
+                  className="w-full h-48 border rounded-sm p-4 text-black resize-none"
+                  required
+                ></textarea>
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-700 text-white w-48 font-bold py-2 px-4 rounded"
+                >
+                  Comment
+                </button>
+              </form>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <Comment username="alexjachna123" comment="hello there" />
+              <Comment username="dantheman45" comment="this is cool" />
+              <Comment username="thegamerGUY" comment="very nice! :D" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

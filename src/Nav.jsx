@@ -38,7 +38,7 @@ export default function Nav({ username, bio }) {
         <img src={wroteitLogo} alt="wroteit logo" className="w-12" />
         <p className="text-zinc-700 text-lg font-medium">Wroteit</p>
       </div>
-      {size >= 1024 ? (
+      {size >= 1280 ? (
         <>
           <div className="w-6/12 xl:w-3/12 h-12 relative rounded-lg shadow-sm">
             <img
