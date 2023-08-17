@@ -30,6 +30,7 @@ export default function Feed({
           likes: 0,
           liked: false,
           disliked: false,
+          comments: [],
         },
         ...currentPosts,
       ];

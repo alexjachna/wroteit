@@ -30,6 +30,18 @@ function App() {
           likes: 36,
           liked: false,
           disliked: false,
+          comments: [
+            {
+              id: crypto.randomUUID(),
+              username: "alexjachna123",
+              message: "hello there",
+            },
+            {
+              id: crypto.randomUUID(),
+              username: "dantheman45",
+              message: "this is awesome.",
+            },
+          ],
         },
         {
           username: "krazykoala45",
@@ -40,6 +52,13 @@ function App() {
           likes: 122,
           liked: false,
           disliked: false,
+          comments: [
+            {
+              id: crypto.randomUUID(),
+              username: "alexjachna123",
+              message: "hello there",
+            },
+          ],
         },
       ];
     }
@@ -72,11 +91,35 @@ function App() {
     });
   }
 
+  function addComment(id, msg) {
+    setPosts((currentPosts) => {
+      return currentPosts.map((post) => {
+        if (post.id === id) {
+          console.log(post.comments);
+          return {
+            ...post,
+            comments: [
+              {
+                id: crypto.randomUUID(),
+                username: username,
+                message: msg,
+              },
+              ...post.comments,
+            ],
+          };
+        }
+        return post;
+      });
+    });
+  }
+
+  // Save username & posts on refresh
   useEffect(() => {
     sessionStorage.setItem("items", JSON.stringify(posts));
     localStorage.setItem("username", username);
   }, []);
 
+  // Reset all posts' liked and disliked flags
   useEffect(() => {
     setPosts((currentPosts) => {
       return currentPosts.map((post) => {
@@ -143,8 +186,7 @@ function App() {
                 username={username}
                 bio={bio}
                 posts={posts}
-                setPosts={setPosts}
-                handleVote={handleVote}
+                addComment={addComment}
               />
             }
           />

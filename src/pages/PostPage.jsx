@@ -4,15 +4,9 @@ import Nav from "../Nav";
 import Post from "../Post";
 import Comment from "../Comment";
 
-export default function PostPage({
-  username,
-  bio,
-  posts,
-  setPosts,
-  handleVote,
-}) {
-  const [yourComms, setYourComms] = useState(false);
+export default function PostPage({ username, bio, posts, addComment }) {
   const [size, setSize] = useState(window.innerWidth);
+  const [msg, setMsg] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -27,6 +21,14 @@ export default function PostPage({
     };
   }, [window.innerWidth]);
 
+  function handleCommentAdd(e) {
+    e.preventDefault();
+
+    addComment(id, msg);
+
+    setMsg("");
+  }
+
   return (
     <div className="w-full h-fit flex flex-col">
       <Nav username={username} bio={bio} />
@@ -37,7 +39,7 @@ export default function PostPage({
 
         <div className="flex flex-col xl:flex-row-reverse gap-4">
           {/* Your Communities */}
-          {size >= 1280 ? (
+          {size >= 1280 && (
             <div className="w-full xl:max-w-sm h-fit bg-white border-gray-100 border rounded-lg">
               <div className="bg-green-100 flex items-center h-20 px-6 rounded-t-lg">
                 <p className="text-black font-semibold text-lg pl-2">
@@ -53,21 +55,25 @@ export default function PostPage({
                 <p>w/react</p>
               </div>
             </div>
-          ) : null}
+          )}
 
           {/* Post & Comments */}
           <div className="w-full h-fit flex flex-col gap-4">
             {posts.map((post) => {
               if (post.id == id) {
-                return <Post {...post} handleVote={handleVote} key={post.id} />;
+                return (
+                  <Post username={post.username} key={post.id} {...post} />
+                );
               }
             })}
 
             <div className=" p-4 border-b">
-              <form>
+              <form onSubmit={handleCommentAdd}>
                 <textarea
                   name="description"
-                  placeholder="what is your reply?"
+                  value={msg}
+                  onChange={(e) => setMsg(e.target.value)}
+                  placeholder="what are your thoughts?"
                   className="w-full h-48 border rounded-sm p-4 text-black resize-none"
                   required
                 ></textarea>
@@ -81,9 +87,19 @@ export default function PostPage({
             </div>
 
             <div className="flex flex-col gap-4">
-              <Comment username="alexjachna123" comment="hello there" />
-              <Comment username="dantheman45" comment="this is cool" />
-              <Comment username="thegamerGUY" comment="very nice! :D" />
+              {posts.map((post) => {
+                if (post.id === id) {
+                  return post.comments.map((p) => {
+                    return (
+                      <Comment
+                        key={p.id}
+                        username={p.username}
+                        message={p.message}
+                      />
+                    );
+                  });
+                }
+              })}
             </div>
           </div>
         </div>

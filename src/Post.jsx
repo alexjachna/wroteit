@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Vote from "./Vote";
 import commentImg from "./assets/comments.png";
@@ -12,9 +12,15 @@ export default function Post({
   likes,
   liked,
   disliked,
+  comments,
   handleVote,
 }) {
   const navigate = useNavigate();
+  const [commentNum, setCommentNum] = useState(comments.length);
+
+  useEffect(() => {
+    setCommentNum(comments.length);
+  }, [comments]);
 
   return (
     <div
@@ -58,7 +64,9 @@ export default function Post({
         className="h-[20%] bg-slate-50 flex items-center gap-3 px-6"
       >
         <img src={commentImg} alt="" className="h-6" />
-        <p>0 Comments</p>
+        <p>
+          {commentNum} {commentNum == 1 ? "Comment" : "Comments"}
+        </p>
       </div>
     </div>
   );
