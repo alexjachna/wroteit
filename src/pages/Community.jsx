@@ -8,13 +8,15 @@ export default function Community({
   bio,
   posts,
   setPosts,
+  communities,
+  setCommunities,
   handleVote,
 }) {
   const { community } = useParams();
 
   return (
     <div className="w-full h-fit flex flex-col">
-      <Nav username={username} bio={bio} />
+      <Nav username={username} bio={bio} communities={communities} />
       <div className="px-2 lg:px-60 flex flex-col bg-zinc-50 justify-center align-center w-full">
         <h1 className="text-black text-4xl font-bold w-full py-7">
           w/{community}
@@ -24,6 +26,7 @@ export default function Community({
           posts={posts.filter((p) => p.community == community)}
           setPosts={setPosts}
           ifCommunity={community}
+          setCommunities={setCommunities}
           handleVote={handleVote}
         />
       </div>

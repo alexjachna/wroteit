@@ -6,14 +6,20 @@ import viteLogo from "../assets/vite.svg";
 import editImg from "../assets/edit.png";
 import wroteitLogo from "../assets/wroteit-logo.png";
 
-export default function Profile({ username, bio, posts, handleVote }) {
+export default function Profile({
+  username,
+  bio,
+  posts,
+  communities,
+  handleVote,
+}) {
   const navigate = useNavigate();
 
   let filteredPosts = posts.filter((p) => p.username == username).length;
 
   return (
     <div className="bg-zinc-50 w-full h-fit flex flex-col items-center gap-4 pb-12">
-      <Nav username={username} bio={bio} />
+      <Nav username={username} bio={bio} communities={communities} />
 
       {/* Container with Profile title + Profile card/Posts Section */}
       <div className="flex flex-col px-2 lg:px-60 w-full">

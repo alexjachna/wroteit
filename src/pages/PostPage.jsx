@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Nav from "../Nav";
 import Post from "../Post";
 import Comment from "../Comment";
 
-export default function PostPage({ username, bio, posts, addComment }) {
+export default function PostPage({
+  username,
+  bio,
+  posts,
+  communities,
+  addComment,
+  handleVote,
+}) {
   const [size, setSize] = useState(window.innerWidth);
   const [msg, setMsg] = useState("");
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     function handleResize() {
@@ -34,7 +42,11 @@ export default function PostPage({ username, bio, posts, addComment }) {
       <Nav username={username} bio={bio} />
       <div className="px-2 lg:px-60 flex flex-col bg-zinc-50 justify-center align-center w-full">
         <h1 className="text-black text-4xl font-bold w-full py-7">
-          Hello world
+          {posts.map((post) => {
+            if (post.id == id) {
+              return post.title;
+            }
+          })}
         </h1>
 
         <div className="flex flex-col xl:flex-row-reverse gap-4">
@@ -47,12 +59,16 @@ export default function PostPage({ username, bio, posts, addComment }) {
                 </p>
               </div>
               <div className="p-4 flex flex-col gap-4">
-                <p>w/react</p>
-                <p>w/react</p>
-                <p>w/react</p>
-                <p>w/react</p>
-                <p>w/react</p>
-                <p>w/react</p>
+                {communities.map((c) => {
+                  return (
+                    <p
+                      className="hover:cursor-pointer"
+                      onClick={() => navigate(`/${c}`)}
+                    >
+                      w/{c}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -62,7 +78,12 @@ export default function PostPage({ username, bio, posts, addComment }) {
             {posts.map((post) => {
               if (post.id == id) {
                 return (
-                  <Post username={post.username} key={post.id} {...post} />
+                  <Post
+                    username={post.username}
+                    key={post.id}
+                    handleVote={handleVote}
+                    {...post}
+                  />
                 );
               }
             })}
@@ -93,8 +114,10 @@ export default function PostPage({ username, bio, posts, addComment }) {
                     return (
                       <Comment
                         key={p.id}
+                        postId={id}
                         username={p.username}
                         message={p.message}
+                        addComment={addComment}
                       />
                     );
                   });

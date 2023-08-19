@@ -66,6 +66,14 @@ function App() {
     return JSON.parse(localVal);
   });
 
+  const [communities, setCommunities] = useState(
+    posts.map((post) => {
+      return post.community;
+    })
+  );
+
+  console.log(communities);
+
   function handleVote(id, num, ifLiked, setLiked, setDisliked) {
     setPosts((currentPosts) => {
       return currentPosts.map((post) => {
@@ -141,6 +149,8 @@ function App() {
                 bio={bio}
                 posts={posts}
                 setPosts={setPosts}
+                communities={communities}
+                setCommunities={setCommunities}
                 handleVote={handleVote}
               />
             }
@@ -152,6 +162,7 @@ function App() {
                 username={username}
                 bio={bio}
                 posts={posts}
+                communities={communities}
                 handleVote={handleVote}
               />
             }
@@ -175,6 +186,8 @@ function App() {
                 bio={bio}
                 posts={posts}
                 setPosts={setPosts}
+                communities={communities}
+                setCommunities={setCommunities}
                 handleVote={handleVote}
               />
             }
@@ -186,7 +199,9 @@ function App() {
                 username={username}
                 bio={bio}
                 posts={posts}
+                communities={communities}
                 addComment={addComment}
+                handleVote={handleVote}
               />
             }
           />

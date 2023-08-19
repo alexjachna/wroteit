@@ -61,7 +61,8 @@ export default function Post({
       </div>
       <div
         id="comments"
-        className="h-[20%] bg-slate-50 flex items-center gap-3 px-6"
+        className="h-[20%] bg-slate-50 flex items-center gap-3 px-6 hover:cursor-pointer"
+        onClick={() => navigate(`/post/${id}`)}
       >
         <img src={commentImg} alt="" className="h-6" />
         <p>

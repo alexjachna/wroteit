@@ -8,7 +8,7 @@ import hamburger from "./assets/hamburger.png";
 import xIcon from "./assets/x-icon.png";
 import profileImage from "./assets/profile.png";
 
-export default function Nav({ username, bio }) {
+export default function Nav({ username, bio, communities }) {
   const [size, setSize] = useState(window.innerWidth);
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
@@ -89,12 +89,13 @@ export default function Nav({ username, bio }) {
               </div>
               <div className="flex flex-col gap-3 text-zinc-700 p-6">
                 <p className="font-bold text-xl">Your communities</p>
-                <div className="flex gap-4 h-8">
-                  <p>w/react</p>
-                </div>
-                <div className="flex gap-4 h-8">
-                  <p>w/theworld</p>
-                </div>
+                {communities.map((community) => {
+                  return (
+                    <div className="flex gap-4 h-8">
+                      <p>w/{community}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ) : null}

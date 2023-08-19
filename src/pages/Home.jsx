@@ -2,10 +2,18 @@ import React from "react";
 import Nav from "../Nav";
 import Feed from "../Feed";
 
-export default function Home({ username, bio, posts, setPosts, handleVote }) {
+export default function Home({
+  username,
+  bio,
+  posts,
+  setPosts,
+  communities,
+  setCommunities,
+  handleVote,
+}) {
   return (
     <div className="w-full h-fit flex flex-col">
-      <Nav username={username} bio={bio} />
+      <Nav username={username} bio={bio} communities={communities} />
       <div className="px-2 lg:px-60 flex flex-col bg-zinc-50 justify-center align-center w-full">
         <h1 className="text-black text-4xl font-bold w-full my-7">Your Feed</h1>
         <Feed
@@ -13,6 +21,7 @@ export default function Home({ username, bio, posts, setPosts, handleVote }) {
           posts={posts}
           setPosts={setPosts}
           ifCommunity={null}
+          setCommunities={setCommunities}
           handleVote={handleVote}
         />
       </div>
