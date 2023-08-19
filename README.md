@@ -87,6 +87,15 @@ Users are now able to comment on posts, but only comment. Later features will in
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/886f0fe7-1817-4bb4-ba1a-d4f5c2877be6)
 
+------------
+
+v10: Added Reply system on comments
+
+Users can now select the 'reply' option on comments, to where they will be prompted a new reply box, with a preset @ towards the comments user.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/be2f2043-51a8-497b-9ef1-0eb1c55642ce)
+
+
 
 
 
