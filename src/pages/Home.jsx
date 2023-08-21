@@ -8,7 +8,6 @@ export default function Home({
   posts,
   setPosts,
   communities,
-  setCommunities,
   handleVote,
 }) {
   return (
@@ -21,7 +20,6 @@ export default function Home({
           posts={posts}
           setPosts={setPosts}
           ifCommunity={null}
-          setCommunities={setCommunities}
           handleVote={handleVote}
         />
       </div>

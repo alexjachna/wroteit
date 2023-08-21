@@ -62,10 +62,11 @@ export default function PostPage({
                 {communities.map((c) => {
                   return (
                     <p
+                      key={c.id}
                       className="hover:cursor-pointer"
-                      onClick={() => navigate(`/${c}`)}
+                      onClick={() => navigate(`/${c.communityName}`)}
                     >
-                      w/{c}
+                      w/{c.communityName}
                     </p>
                   );
                 })}
@@ -74,7 +75,7 @@ export default function PostPage({
           )}
 
           {/* Post & Comments */}
-          <div className="w-full h-fit flex flex-col gap-4">
+          <div className="w-full h-fit flex flex-col gap-4 mb-7">
             {posts.map((post) => {
               if (post.id == id) {
                 return (

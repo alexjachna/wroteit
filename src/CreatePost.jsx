@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import House from "./assets/house.png";
 
 export default function CreatePost({
@@ -21,6 +21,10 @@ export default function CreatePost({
     setDesc("");
   }
 
+  useEffect(() => {
+    ifCommunity && setCommunity(ifCommunity);
+  }, []);
+
   return (
     <div className="w-full max-w-md h-fit bg-white border-gray-100 border rounded-lg">
       <div className="bg-green-100 flex items-center h-20 px-6 rounded-t-lg">
@@ -33,9 +37,7 @@ export default function CreatePost({
         onSubmit={handleCreatePost}
         className="m-3 flex flex-col gap-2 items-center"
       >
-        {ifCommunity ? (
-          setCommunity(ifCommunity)
-        ) : (
+        {!ifCommunity && (
           <input
             name="community"
             value={community}

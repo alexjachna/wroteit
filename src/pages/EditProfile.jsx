@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "../Nav";
+import viteLogo from "../assets/vite.svg";
 
 export default function EditProfile({ username, setUsername, bio, setBio }) {
   const usernameVal = useRef(null);
@@ -12,7 +13,7 @@ export default function EditProfile({ username, setUsername, bio, setBio }) {
       <Nav username={username} bio={bio} />
       <div className="w-fit p-12 flex flex-col gap-8 items-center justify-center">
         <img
-          src="/public/vite.svg"
+          src={viteLogo}
           alt=""
           className="w-36 border-slate-200 border-2 p-6 shadow-sm rounded-full"
         />

@@ -9,7 +9,6 @@ export default function Community({
   posts,
   setPosts,
   communities,
-  setCommunities,
   handleVote,
 }) {
   const { community } = useParams();
@@ -26,7 +25,6 @@ export default function Community({
           posts={posts.filter((p) => p.community == community)}
           setPosts={setPosts}
           ifCommunity={community}
-          setCommunities={setCommunities}
           handleVote={handleVote}
         />
       </div>

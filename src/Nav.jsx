@@ -89,13 +89,21 @@ export default function Nav({ username, bio, communities }) {
               </div>
               <div className="flex flex-col gap-3 text-zinc-700 p-6">
                 <p className="font-bold text-xl">Your communities</p>
-                {communities.map((community) => {
-                  return (
-                    <div className="flex gap-4 h-8">
-                      <p>w/{community}</p>
-                    </div>
-                  );
-                })}
+                <div className="flex flex-col gap-4 h-8">
+                  {communities.map((c) => {
+                    return (
+                      <p
+                        key={c.id}
+                        onClick={() => {
+                          toggleNav(showNav);
+                          navigate(`/${c.communityName}`);
+                        }}
+                      >
+                        w/{c.communityName}
+                      </p>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           ) : null}

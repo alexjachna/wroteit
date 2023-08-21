@@ -7,7 +7,6 @@ export default function Feed({
   posts,
   setPosts,
   ifCommunity,
-  setCommunities,
   handleVote,
 }) {
   const [community, setCommunity] = useState("");
@@ -35,10 +34,6 @@ export default function Feed({
         },
         ...currentPosts,
       ];
-    });
-
-    setCommunities((currentCommunities) => {
-      return [...currentCommunities, community];
     });
   }
 

@@ -22,6 +22,38 @@ function App() {
     if (localVal == null) {
       return [
         {
+          username: "wroteitFAN",
+          id: crypto.randomUUID(),
+          community: "crazyvideos",
+          title: "UNREAL!",
+          desc: "the FIRST ever video. https://www.youtube.com/watch?v=jNQXAC9IVRw",
+          likes: 1036,
+          liked: false,
+          disliked: false,
+          comments: [
+            {
+              id: crypto.randomUUID(),
+              username: "yupyupyup999",
+              message: "@wroteitFAN I totally agree.",
+            },
+            {
+              id: crypto.randomUUID(),
+              username: "wroteitFAN",
+              message: "This is one for the history books",
+            },
+            {
+              id: crypto.randomUUID(),
+              username: "dantheman45",
+              message: "this is actually crazy... just a guy at the zoo!",
+            },
+            {
+              id: crypto.randomUUID(),
+              username: "dantheman45",
+              message: "I will remember this FOREVER.",
+            },
+          ],
+        },
+        {
           username: "alexjachna123",
           id: crypto.randomUUID(),
           community: "react",
@@ -60,19 +92,57 @@ function App() {
             },
           ],
         },
+        {
+          username: "reactenjoyer",
+          id: crypto.randomUUID(),
+          community: "react",
+          title: "React help here!!",
+          desc: "Hey guys, since I enjoy React so much, I wanted to help out. Here's a cool link: https://react.dev/",
+          likes: 245,
+          liked: false,
+          disliked: false,
+          comments: [
+            {
+              id: crypto.randomUUID(),
+              username: "randomuserguy",
+              message: "I also enjoy React :D",
+            },
+            {
+              id: crypto.randomUUID(),
+              username: "ilikethis",
+              message: "I like this.",
+            },
+            {
+              id: crypto.randomUUID(),
+              username: "turtlefriend2",
+              message: "I'll check this out later, thanks!",
+            },
+          ],
+        },
       ];
     }
 
     return JSON.parse(localVal);
   });
 
-  const [communities, setCommunities] = useState(
-    posts.map((post) => {
-      return post.community;
-    })
-  );
+  const [communities, setCommunities] = useState([]);
 
-  console.log(communities);
+  useEffect(() => {
+    const final = [];
+    const arr = posts.map((post) => {
+      return post.community;
+    });
+    arr.map((item) => {
+      if (!final.includes(item)) {
+        final.push(item);
+      }
+    });
+    setCommunities(
+      final.map((comm) => {
+        return { id: crypto.randomUUID(), communityName: comm };
+      })
+    );
+  }, [posts.length]);
 
   function handleVote(id, num, ifLiked, setLiked, setDisliked) {
     setPosts((currentPosts) => {
@@ -103,7 +173,6 @@ function App() {
     setPosts((currentPosts) => {
       return currentPosts.map((post) => {
         if (post.id === id) {
-          console.log(post.comments);
           return {
             ...post,
             comments: [
@@ -150,7 +219,6 @@ function App() {
                 posts={posts}
                 setPosts={setPosts}
                 communities={communities}
-                setCommunities={setCommunities}
                 handleVote={handleVote}
               />
             }
@@ -187,7 +255,6 @@ function App() {
                 posts={posts}
                 setPosts={setPosts}
                 communities={communities}
-                setCommunities={setCommunities}
                 handleVote={handleVote}
               />
             }
