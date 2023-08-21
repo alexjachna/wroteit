@@ -89,11 +89,18 @@ Users are now able to comment on posts, but only comment. Later features will in
 
 ------------
 
-v10: Added Reply system on comments
+v10.1: Added Reply system on comments
 
 Users can now select the 'reply' option on comments, to where they will be prompted a new reply box, with a preset @ towards the comments user.
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/be2f2043-51a8-497b-9ef1-0eb1c55642ce)
+
+v10.2: Added Report system on comments
+
+Users can now report comments which will signify users that a particular comment has been reported for options like harassment, offensive language, etc.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/0c5f89dc-0be6-40cf-97e6-eb65e7555799)
+![image](https://github.com/alexjachna/wroteit/assets/57778785/317ce11a-49ce-40d8-b5be-d96c755a3a77)
 
 
 
