@@ -102,6 +102,15 @@ Users can now report comments which will signify users that a particular comment
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/0c5f89dc-0be6-40cf-97e6-eb65e7555799)
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/317ce11a-49ce-40d8-b5be-d96c755a3a77)
 
+------------
+
+v11: Added Search Bar functionality
+
+Users can now use the search bar to search for post titles, or certain communities.
+
+![image](https://github.com/alexjachna/wroteit/assets/57778785/1bd76616-51c2-4485-b105-861dcf1dc3d5)
+
+
 
 
 
