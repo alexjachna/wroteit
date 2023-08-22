@@ -127,6 +127,7 @@ function App() {
 
   const [communities, setCommunities] = useState([]);
 
+  // Populate communities with current communities
   useEffect(() => {
     const final = [];
     const arr = posts.map((post) => {
@@ -144,6 +145,7 @@ function App() {
     );
   }, [posts.length]);
 
+  // Handle votes for posts
   function handleVote(id, num, ifLiked, setLiked, setDisliked) {
     setPosts((currentPosts) => {
       return currentPosts.map((post) => {
@@ -169,6 +171,7 @@ function App() {
     });
   }
 
+  // Handle adding comments to specific post depending on id
   function addComment(id, msg) {
     setPosts((currentPosts) => {
       return currentPosts.map((post) => {
@@ -243,6 +246,8 @@ function App() {
                 setUsername={setUsername}
                 bio={bio}
                 setBio={setBio}
+                posts={posts}
+                communities={communities}
               />
             }
           />

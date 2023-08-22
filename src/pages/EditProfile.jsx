@@ -3,14 +3,26 @@ import { useNavigate } from "react-router-dom";
 import Nav from "../Nav";
 import viteLogo from "../assets/vite.svg";
 
-export default function EditProfile({ username, setUsername, bio, setBio }) {
+export default function EditProfile({
+  username,
+  setUsername,
+  bio,
+  setBio,
+  posts,
+  communities,
+}) {
   const usernameVal = useRef(null);
   const bioVal = useRef(null);
   const navigate = useNavigate();
 
   return (
     <div className="w-full h-full flex flex-col items-center">
-      <Nav username={username} bio={bio} />
+      <Nav
+        username={username}
+        bio={bio}
+        posts={posts}
+        communities={communities}
+      />
       <div className="w-fit p-12 flex flex-col gap-8 items-center justify-center">
         <img
           src={viteLogo}

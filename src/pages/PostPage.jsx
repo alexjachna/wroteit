@@ -39,7 +39,12 @@ export default function PostPage({
 
   return (
     <div className="w-full h-fit flex flex-col">
-      <Nav username={username} bio={bio} />
+      <Nav
+        username={username}
+        bio={bio}
+        posts={posts}
+        communities={communities}
+      />
       <div className="px-2 lg:px-60 flex flex-col bg-zinc-50 justify-center align-center w-full">
         <h1 className="text-black text-4xl font-bold w-full py-7">
           {posts.map((post) => {
