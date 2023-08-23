@@ -110,6 +110,19 @@ Users can now use the search bar to search for post titles, or certain communiti
 
 ![image](https://github.com/alexjachna/wroteit/assets/57778785/1bd76616-51c2-4485-b105-861dcf1dc3d5)
 
+v12: Minor changes and Search bar usability
+
+Fixed up more user-friendly search bar by replacing onClick with onFocus/onBlur on the search bar, which allows for a better flow of usability when using the search bar.
+
+Wroteit is finally finished! All the usability and functionality that I wanted to get finished is entirely complete! Eventually, this project can turn into a full-fletched project, where back-end can be applied to store more posts, communities, as well as an actual profile creation. Currently, users can login with a random username (that has no check with current registered users) as well as no password check.
+
+Key features within Wroteit:
+- Ability to create unique posts
+- Able to like posts, and comment on posts.
+- Able to reply/report comments
+- Edit user profile (username, bio)
+- Search for specific posts/communities within wroteit
+
 
 
 
