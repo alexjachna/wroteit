@@ -102,7 +102,14 @@ export default function Nav({ username, bio, posts, communities }) {
                 <p className="font-bold text-xl">All Posts</p>
                 {posts.map((post) => {
                   return (
-                    <div key={post.id} className="flex justify-between">
+                    <div
+                      key={post.id}
+                      className="flex justify-between"
+                      onClick={() => {
+                        toggleNav(showNav);
+                        navigate(`/post/${post.id}`);
+                      }}
+                    >
                       <p className="hover:bg-slate-50 px-1">{post.title}</p>
                       <p className="text-xs">w/{post.community}</p>
                     </div>

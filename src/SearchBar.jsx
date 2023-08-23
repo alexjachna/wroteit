@@ -26,7 +26,8 @@ export default function SearchBar({ posts, communities }) {
         value={searched}
         className="w-full h-12 rounded-lg text-black border-slate-200 border px-12  focus:outline-0"
         onChange={(e) => setSearched(e.target.value)}
-        onClick={() => setShowSearch(!showSearch)}
+        onFocus={() => setShowSearch(true)}
+        onBlur={() => setShowSearch(false)}
       />
       {showSearch && (
         <div className="absolute mt-1 w-full p-2 bg-white shadow-lg rounded-bl rounded-br max-h-48 overflow-y-auto">
